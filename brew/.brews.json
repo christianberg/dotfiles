@@ -1,0 +1,19 @@
+{
+    "formulas": {
+	"camlistore": {},
+	"brew-cask": {
+	    "fullname": "caskroom/cask/brew-cask"
+	},
+	"emacs": {
+	    "options": "--cocoa"
+	},
+	"git": {},
+	"jq": {},
+	"runit": {},
+	"stow": {},
+	"tmux": {}
+    },
+    "casks": {
+	"iterm2": {}
+    }
+}

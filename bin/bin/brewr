@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
+require 'json'
 require 'set'
 require 'io/console'
 
-PACKAGES_PATH="#{ENV['HOME']}/.brew-packages"
+PACKAGES_PATH="#{ENV['HOME']}/.brews.json"
+CONFIG = JSON.parse(open(PACKAGES_PATH).read)
 
 def yesno(prompt = 'Continue?', default = true)
   a = ''
@@ -21,27 +23,66 @@ def lines_to_set(lines)
   lines.map { |s| s.chomp }.select { |s| s.length > 0 }.to_set
 end
 
-wanted_packages = lines_to_set(open(PACKAGES_PATH).readlines)
-installed_packages = lines_to_set(`brew list`.lines)
-
-missing_packages = wanted_packages - installed_packages
-
-if missing_packages.length > 0
-  puts 'The following packages will be installed:'
-  puts missing_packages.to_a.join(', ')
-  if yesno('Install?', true)
-    system("brew install #{missing_packages.to_a.join(' ')}")
-  else
-    exit
+def installed(type)
+  case type
+  when :formulas
+    lines_to_set(`brew list`.lines)
+  when :casks
+    lines_to_set(`brew cask list`.lines)
   end
 end
 
-dependencies = lines_to_set(`brew deps --union #{wanted_packages.to_a.join(' ')}`.lines)
-
-extra_packages = installed_packages - wanted_packages - dependencies
-
-if extra_packages.length > 0
-  puts 'The following packages were installed manually:'
-  puts extra_packages.to_a.join(', ')
-  puts 'Please add them to #{PACKAGES_PATH} or remove them'
+def install(type, spec)
+  case type
+  when :formulas
+    system("brew install #{spec}")
+  when :casks
+    system("brew cask install #{spec}")
+  end
 end
+
+def leaves(type)
+  case type
+  when :formulas
+    lines_to_set(`brew leaves`.lines)
+  when :casks
+    installed(type)
+  end
+end
+
+def sync_packages(type)
+  config = CONFIG[type.to_s] || {}
+
+  wanted_packages = config.keys.to_set
+  installed_packages = installed(type)
+
+  missing_packages = wanted_packages - installed_packages
+
+  if missing_packages.length > 0
+    puts 'The following packages will be installed:'
+    install_specs = missing_packages.map do |name|
+      formula = config[name]['fullname'] || name
+      options = config[name]['options'] || ""
+      "#{formula} #{options}"
+    end
+    install_specs.each { |spec| puts spec }
+    if yesno('Install?', true)
+      install_specs.each do |spec|
+        install(type, spec)
+      end
+    else
+      exit
+    end
+  end
+
+  extra_packages = leaves(type) - wanted_packages
+
+  if extra_packages.length > 0
+    puts 'The following packages were installed manually:'
+    puts extra_packages.to_a.join(', ')
+    puts 'Please add them to #{PACKAGES_PATH} or remove them'
+  end
+end
+
+sync_packages(:formulas)
+sync_packages(:casks)
