@@ -9,6 +9,8 @@
 	},
 	"git": {},
 	"jq": {},
+	"lua": {},
+	"luarocks": {},
 	"runit": {},
 	"stow": {},
 	"tmux": {}
