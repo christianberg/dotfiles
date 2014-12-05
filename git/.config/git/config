@@ -1,3 +1,5 @@
+[init]
+	templatedir = ~/.config/git/templates
 [user]
 	name = Christian Berg
 	email = berg.christian@gmail.com
