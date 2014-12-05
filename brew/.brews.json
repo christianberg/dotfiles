@@ -14,6 +14,10 @@
 	"tmux": {}
     },
     "casks": {
-	"iterm2": {}
+	"dropbox": {},
+	"iterm2": {},
+	"mjolnir": {},
+	"vlc": {},
+	"ynab": {}
     }
 }
