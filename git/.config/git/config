@@ -1,0 +1,5 @@
+[user]
+	name = Christian Berg
+	email = berg.christian@gmail.com
+[push]
+	default = simple
