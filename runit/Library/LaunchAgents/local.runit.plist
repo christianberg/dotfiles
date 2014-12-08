@@ -7,7 +7,21 @@
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/runsvdir</string>
-      <string>/Users/chberg/.services</string>
+      <string>-P</string>
+      <string>/Users/chberg/.sv</string>
     </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/chberg/Library/Logs/runit/runsvdir-out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/chberg/Library/Logs/runit/runsvdir-err.log</string>
   </dict>
 </plist>
