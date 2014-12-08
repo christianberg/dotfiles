@@ -1,0 +1,8 @@
+{
+    "auth": "localhost",
+    "listen": ":3179",
+    "identity": "3005EF43",
+    "identitySecretRing": "/Users/chberg/.secrets/camlistore/identity-secring.gpg",
+    "blobPath": "/Users/chberg/Library/Camlistore/blobs",
+    "sqlite": "/Users/chberg/Library/Camlistore/camli-index.db"
+}

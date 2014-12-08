@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /usr/local/bin/camlistored -openbrowser=false 2>&1
