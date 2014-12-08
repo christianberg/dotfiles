@@ -4,6 +4,6 @@ set -e
 cd ~/dotfiles
 for entry in $(ls); do
     if [ -d $entry ]; then
-	stow $entry
+	stow -v $entry
     fi
 done
