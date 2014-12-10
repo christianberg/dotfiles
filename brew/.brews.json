@@ -14,7 +14,8 @@
 	"luarocks": {},
 	"runit": {},
 	"stow": {},
-	"tmux": {}
+	"tmux": {},
+        "youtube-dl": {}
     },
     "casks": {
 	"dropbox": {},
