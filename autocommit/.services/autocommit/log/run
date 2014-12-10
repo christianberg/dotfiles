@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /usr/local/bin/svlogd -tt /Users/chberg/.logs/autocommit

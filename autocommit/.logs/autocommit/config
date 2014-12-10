@@ -1,0 +1,10 @@
+# Rotate when log is 1MB big
+s1000000
+# Keep 10 rotated logs
+n10
+# Only keep one rotated log file if the disk is full
+N1
+# Rotate at least once a week
+t604800
+# Pipe rotated logs through gzip
+!gzip

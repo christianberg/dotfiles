@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd /Users/chberg/org
+while true; do
+    git add *.org
+    HOST=`hostname -s`
+    MSG="Automatic commit from ${HOST}."
+    git commit -m "${MSG}"
+
+    if ping -o gitlab.com > /dev/null 2>&1; then
+        git pull --rebase
+        git push origin master
+    fi
+
+    sleep 300
+done
