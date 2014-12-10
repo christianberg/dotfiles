@@ -41,6 +41,8 @@
 
 (setq org-agenda-files '("~/org"))
 (setq org-default-notes-file "~/org/refile.org")
+(setq org-refile-targets (quote ((nil :maxlevel . 3)
+                                 (org-agenda-files :maxlevel . 3))))
 
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.pp$". puppet-mode))
@@ -50,3 +52,5 @@
 
 (add-hook 'org-mode-hook
           (lambda () (set-input-method 'latin-postfix)))
+
+(run-at-time t 60 'org-save-all-org-buffers)
