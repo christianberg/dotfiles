@@ -80,7 +80,7 @@ def sync_packages(type)
   if extra_packages.length > 0
     puts 'The following packages were installed manually:'
     puts extra_packages.to_a.join(', ')
-    puts 'Please add them to #{PACKAGES_PATH} or remove them'
+    puts "Please add them to #{PACKAGES_PATH} or remove them"
   end
 end
 

@@ -4,7 +4,11 @@
       "server": "http://localhost:3179",
       "auth": "localhost",
       "default": true
-    }
+    },
+      "imac-link": {
+          "server": "http://169.254.169.112:3179",
+          "auth": "none"
+      }
   },
   "identity": "3005EF43",
   "ignoredFiles": [
