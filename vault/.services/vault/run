@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /Users/chberg/bin/vault server -config=/Users/chberg/.config/vault/config.hcl 2>&1
