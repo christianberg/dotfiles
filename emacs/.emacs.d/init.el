@@ -42,16 +42,23 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 (setq org-agenda-files '("~/org"))
-(setq org-default-notes-file "~/org/refile.org")
+(setq org-default-notes-file "~/org/tasks.org")
+(setq org-refile-use-outline-path 'file)
 (setq org-refile-targets (quote ((nil :maxlevel . 3)
                                  (org-agenda-files :maxlevel . 3))))
 (setq org-use-fast-todo-selection t)
 (setq org-agenda-span 'day)
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "STARTED(s!)" "BLOCKED(b@)" "|"
-                  "DONE(d!)" "CANCELLED(c@)")))
+      '((sequence "⚪ OPEN(o!)" "⚫ NEXT(n!)" "|"
+                  "DONE(d!)" "CANCELLED(c!)")))
 (setq org-drawers (quote ("PROPERTIES" "LOGBOOK")))
 (setq org-log-into-drawer "LOGBOOK")
+
+(setq org-capture-templates
+      '(("t" "Task" entry (file "~/org/tasks.org")
+         "* ⚪ OPEN %?\n  %i\n")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %T\n")))
 
 (setq org-tag-alist '(("focus" . ?f)))
 (setq org-agenda-custom-commands
