@@ -2,9 +2,6 @@
   "formulas": {
     "camlistore": {},
     "boot2docker": {},
-    "brew-cask": {
-      "fullname": "caskroom/cask/brew-cask"
-    },
     "docker": {},
     "emacs": {
       "options": "--cocoa"
@@ -16,6 +13,7 @@
     "hub": {},
     "jq": {},
     "keybase": {},
+    "ledger": {},
     "leiningen": {},
     "lua": {},
     "luarocks": {},
@@ -37,9 +35,11 @@
     "adium": {},
     "calibre": {},
     "consul": {},
+    "dockertoolbox": {},
     "dropbox": {},
     "firefox": {},
     "flashlight": {},
+    "hammerspoon": {},
     "iterm2": {},
     "java": {},
     "mjolnir": {},
