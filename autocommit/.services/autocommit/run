@@ -8,7 +8,7 @@ while true; do
     MSG="Automatic commit from ${HOST}"
     git diff --quiet --exit-code --cached || git commit -m "${MSG}"
 
-    if ping -o gitlab.com > /dev/null 2>&1; then
+    if ssh git@gitlab.com 2>&1 | grep Welcome > /dev/null; then
         git pull --rebase
         git push origin master
     else
