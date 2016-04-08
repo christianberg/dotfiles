@@ -1,22 +1,17 @@
 {
   "formulas": {
     "camlistore": {},
-    "boot2docker": {},
-    "docker": {},
     "emacs": {
       "options": "--cocoa"
     },
     "git": {},
     "gnupg": {},
     "graphviz": {},
-    "heroku-toolbelt": {},
     "hub": {},
     "jq": {},
     "keybase": {},
     "ledger": {},
     "leiningen": {},
-    "lua": {},
-    "luarocks": {},
     "r": {
       "fullname": "homebrew/science/r"
     },
@@ -25,24 +20,18 @@
     "ruby-build": {},
     "runit": {},
     "stow": {},
-    "task": {},
     "tmux": {},
     "watch": {},
-    "whereami": {},
     "youtube-dl": {}
   },
   "casks": {
-    "adium": {},
-    "calibre": {},
     "consul": {},
     "dockertoolbox": {},
     "dropbox": {},
-    "firefox": {},
-    "flashlight": {},
+    "google-chrome": {},
     "hammerspoon": {},
     "iterm2": {},
     "java": {},
-    "mjolnir": {},
     "picasa": {},
     "skitch": {},
     "vagrant": {},
@@ -50,7 +39,5 @@
     "virtualbox": {},
     "viscosity": {},
     "vlc": {},
-    "xquartz": {},
-    "ynab": {}
   }
 }
