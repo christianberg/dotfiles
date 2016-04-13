@@ -36,6 +36,8 @@
 
 (exec-path-from-shell-initialize)
 
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
